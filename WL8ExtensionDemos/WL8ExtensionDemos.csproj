@@ -16,6 +16,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Glyphs\Demo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Glyphs\Demo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="WealthLab.ChartWPF">
       <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\WealthLab 8\WealthLab.ChartWPF.dll</HintPath>
     </Reference>

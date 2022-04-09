@@ -1,0 +1,48 @@
+﻿<wpf:ChildWindow x:Class="WL8ExtensionDemos.DemoChildWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wpf="clr-namespace:WealthLab.WPF;assembly=WealthLab.WPF"
+             xmlns:chart="clr-namespace:WealthLab.ChartWPF;assembly=WealthLab.ChartWPF"
+             xmlns:local="clr-namespace:WL8ExtensionDemos"
+             mc:Ignorable="d" Background="{DynamicResource BlueBackground}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <TabControl>
+        <TabItem Header="CoreChart Tiled">
+            <DockPanel Background="{DynamicResource ContainerBackground}">
+                
+                <!--Toolbar-->
+                <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBlock Margin="4" Text="Select a Symbol and press Enter"/>
+                    <TextBox Margin="0,4,4,4" Name="txtSymbol" Width="100" KeyDown="txtSymbolKeyDown"/>
+                </WrapPanel>
+                
+                <!--4 CoreCharts in a grid-->
+                <wpf:EasyGrid Rows="*,*" Cols="*,*">
+                    <chart:CoreChart Name="coreDaily"/>
+                    <chart:CoreChart Name="coreWeekly" Grid.Column="1"/>
+                    <chart:CoreChart Name="coreMonthly" Grid.Row="1"/>
+                    <chart:CoreChart Name="coreQuarterly" Grid.Column="1" Grid.Row="1"/>
+                </wpf:EasyGrid>
+                
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Chart and Indicator">
+            <DockPanel Background="{DynamicResource ContainerBackground}">
+
+                <!--Toolbar-->
+                <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBlock Margin="4" Text="Select an Indicator and press OK"/>
+                    <wpf:TimeSeriesComboBox Height="20" Margin="4,4,0,4" Name="cmbIndicators" Width="200" SelectionChanged="cmbIndChange" />
+                    <wpf:WLButton DisplayState="Text" Text="OK" Margin="0,4,4,4" Click="btnOkClick"/>
+                </WrapPanel>
+
+                <!--chart-->
+                <chart:Chart Name="chart" AfterBarsAssigned="chartBarsAssigned"/>
+
+            </DockPanel>
+        </TabItem>
+    </TabControl>
+
+</wpf:ChildWindow>

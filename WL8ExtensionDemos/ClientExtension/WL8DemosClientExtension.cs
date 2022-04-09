@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using WealthLab.WPF;
 
 namespace WL8ExtensionDemos
@@ -12,5 +10,27 @@ namespace WL8ExtensionDemos
     {
         //extension name
         public override string Name => "WL8DemosClientExtension";
+
+        //return menu item for extension
+        public override List<MenuItem> GetMenuItems()
+        {
+            List<MenuItem> mi = new List<MenuItem>();
+            MenuItem mni = CreateExtensionMenuItem("Demo Extension", GetGlyph(), mniClick);
+            mi.Add(mni);
+            return mi;
+        }
+
+        //menu click handler
+        private void mniClick(object sender, RoutedEventArgs e)
+        {
+            DemoChildWindow dcw = new DemoChildWindow();
+            MyClientHost.ShowExtensionChildWindow(dcw, "Demo ChildWindow", GetGlyph());
+        }
+
+        //Use the WealthLab.WPF GlyphManager to get an ImageSource from our embedded resource
+        private ImageSource GetGlyph()
+        {
+            return GlyphManager.GetImageSource("WL8ExtensionDemos.Glyphs.Demo.png");
+        }
     }
 }
