@@ -30,7 +30,7 @@ namespace WL8ExtensionDemos
         //Use the WealthLab.WPF GlyphManager to get an ImageSource from our embedded resource
         private ImageSource GetGlyph()
         {
-            return GlyphManager.GetImageSource("WL8ExtensionDemos.Glyphs.Demo.png");
+            return GlyphManager.GetImageSource("WL8ExtensionDemos.Glyphs.Demo.png", this);
         }
     }
 }

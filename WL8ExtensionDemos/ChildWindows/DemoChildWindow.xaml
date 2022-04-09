@@ -15,7 +15,7 @@
                 <!--Toolbar-->
                 <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     <TextBlock Margin="4" Text="Select a Symbol and press Enter"/>
-                    <TextBox Margin="0,4,4,4" Name="txtSymbol" Width="100" KeyDown="txtSymbolKeyDown"/>
+                    <wpf:SymbolTextBox Height="20" Margin="0,4,4,4" Name="txtSymbol" Width="100" KeyDown="txtSymbolKeyDown"/>
                 </WrapPanel>
                 
                 <!--4 CoreCharts in a grid-->

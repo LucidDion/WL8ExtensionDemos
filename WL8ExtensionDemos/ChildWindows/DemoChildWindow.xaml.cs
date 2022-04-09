@@ -74,7 +74,7 @@ namespace WL8ExtensionDemos
             chart.Core.StrategyIndicators = lst;
 
             //refresh chart
-            chart.Core.Refresh();
+            chart.ReloadChart();
         }
 
         //after new data is loaded into the chart, regenerate the selected indicator
