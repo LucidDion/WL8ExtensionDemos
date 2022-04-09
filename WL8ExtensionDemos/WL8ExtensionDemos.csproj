@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Platforms>AnyCPU;x64</Platforms>
+	  <Version>8.0.1</Version>
+	  <AssemblyVersion>8.0.1</AssemblyVersion>
+	  <FileVersion>8.0.1</FileVersion>
+	  <PackageId>WL8ExtensionDemos</PackageId>
+	  <Authors>Quantacula, LLC</Authors>
+	  <Company>Quantacula, LLC</Company>
+	  <Product>WL8ExtensionDemos</Product>
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	  <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="WealthLab.ChartWPF">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\WealthLab 8\WealthLab.ChartWPF.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.Core">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\WealthLab 8\WealthLab.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.WPF">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\WealthLab 8\WealthLab.WPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
