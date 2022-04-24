@@ -31,3 +31,30 @@ namespace WealthScript2
 	}
 }
 ```
+
+Using DrawTradeLines:
+
+```
+// Usage: run after Execute has finished
+        public override void BacktestComplete()
+        {
+            this.DrawTradeLines(GetPositions(), false);
+        } 
+```
+
+Using DrawLinRegChannel:
+
+```
+        public override void Execute(BarHistory bars, int idx)
+        {
+            Color col = new Color();
+            if (idx >= bars.Count-100)
+            {
+				if ( bars.Close[idx] > bars.Close[idx - 50])
+					col = Color.Green;
+				else col = Color.Red;
+
+				DrawLinRegChannel(idx, bars.AveragePriceHL, 45, 2, Color.FromArgb(30, col), PlotStyles.Line, 2);
+            }
+        } 
+```
