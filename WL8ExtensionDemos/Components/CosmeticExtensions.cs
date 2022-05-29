@@ -54,20 +54,20 @@ namespace WealthLab.Community
 
         /* Usage: run in Execute:
         public override void Execute(BarHistory bars, int idx)
-        {
-            Color col = new Color();
-            if (idx >= bars.Count-100)
-            {
-				if ( bars.Close[idx] > bars.Close[idx - 50])
-					col = Color.Green;
-				else col = Color.Red;
+		{
+			WLColor col = new WLColor();
+			if (idx >= bars.Count - 100)
+			{
+				if (bars.Close[idx] > bars.Close[idx - 50])
+					col = WLColor.Green;
+				else col = WLColor.Red;
 
-				DrawLinRegChannel(idx, bars.AveragePriceHL, 45, 2, Color.FromArgb(30, col), PlotStyles.Line, 2);
-            }
-        } 
+				this.DrawLinRegChannel(idx, bars.AveragePriceHL, 45, 2, WLColor.FromArgb(30, col), 2);
+			}
+		} 
         */
 
-        public static void DrawLinRegChannel(this UserStrategyBase obj, int bar, TimeSeries series, int period, double width, Color color, PlotStyles style, int line)
+        public static void DrawLinRegChannel(this UserStrategyBase obj, int bar, TimeSeries series, int period, double width, WLColor color, int line)
         {
             double Slope = (period - 1) * LRSlope.Series(series, period)[bar];
             double Intercept = LR.Series(series, period)[bar];
