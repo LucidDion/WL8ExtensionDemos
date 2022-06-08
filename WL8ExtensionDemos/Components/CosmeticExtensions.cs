@@ -36,18 +36,18 @@ namespace WealthLab.Community
                     positionExitPrice = position.ExitPrice;
                 }
 
-                Color col;
+                WLColor col;
                 if (position.PositionType == PositionType.Long)
-                    col = (positionExitPrice - position.EntryPrice) > 0 ? Color.Green : Color.Red;
+                    col = (positionExitPrice - position.EntryPrice) > 0 ? WLColor.Green : WLColor.Red;
                 else
-                    col = (positionExitPrice - position.EntryPrice) > 0 ? Color.Red : Color.Green;
+                    col = (positionExitPrice - position.EntryPrice) > 0 ? WLColor.Red : WLColor.Green;
 
                 obj.DrawLine(position.EntryBar, position.EntryPrice, positionExitBar, positionExitPrice, col);
 
                 if (showSignal)
                 {
-                    obj.DrawBarAnnotation(position.EntrySignalName, position.EntryBar, position.PositionType == PositionType.Long, Color.Black, 12);
-                    obj.DrawBarAnnotation(position.ExitSignalName, position.ExitBar, position.PositionType == PositionType.Short, Color.Black, 12);
+                    obj.DrawBarAnnotation(position.EntrySignalName, position.EntryBar, position.PositionType == PositionType.Long, WLColor.Black, 12);
+                    obj.DrawBarAnnotation(position.ExitSignalName, position.ExitBar, position.PositionType == PositionType.Short, WLColor.Black, 12);
                 }
             }
         }
