@@ -6,6 +6,10 @@ https://drive.google.com/file/d/1dKsJJLfymF2njHIYHxH-ttkOiwEdLsZ7/view?usp=shari
 
 Note: you may need to right-click on the downloaded file and select Unblock from the pop up menu before Windows will allow it to be loaded when WL8 starts.
 
+The next time you launch WL8 you should see the Community indicators in this folder:
+
+![image](https://user-images.githubusercontent.com/3159496/210844526-3beb14c8-824b-49ba-aa5e-685042ef4e23.png)
+
 To use indicators in your strategies, add a _using WealthLab.Community_ directive as shown below:
 
 ```
