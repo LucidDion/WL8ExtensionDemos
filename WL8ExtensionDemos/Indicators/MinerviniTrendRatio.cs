@@ -9,7 +9,9 @@ namespace WealthLab.Indicators
 {
     public class MinerviniTrendRatio : IndicatorBase
     {
-        public MinerviniTrendRatio() : base() { }
+        public MinerviniTrendRatio() : base() 
+        {
+        }
 
         public MinerviniTrendRatio(BarHistory source, String rsSymbol, double sma200Up5MonthsMultiplier,
             double priceUp70Pctg52WeekLowMultiplier, double priceWithin25Pctg52WeekHighMultiplier) : base()
@@ -36,7 +38,7 @@ namespace WealthLab.Indicators
         protected override void GenerateParameters()
         {
             AddParameter("Source", ParameterType.BarHistory, PriceComponent.Close);
-            AddParameter("Relative Strength Index", ParameterType.String, "$NDX");
+            AddParameter("Relative Strength Index", ParameterType.String, "QQQ");
             AddParameter("Multiplier: SMA 200 trending up at least 5 months", ParameterType.Double, 1.1);
             AddParameter("Multiplier: Price at least 70% above 52 Week Low", ParameterType.Double, 1.2);
             AddParameter("Multiplier: Price within 25% of 52 Week High", ParameterType.Double, 1.2);
@@ -67,11 +69,11 @@ namespace WealthLab.Indicators
                 return;
 
             BarHistory indexDailyBars = WLHost.Instance.GetHistory(indexSymbol, bars.Scale, DateTime.MinValue, DateTime.MaxValue, bars.Count, null);
-
+            TimeSeries indexClose = TimeSeriesSynchronizer.Synchronize(indexDailyBars.Close, bars.Close);
             TimeSeries minerviniRatio = new TimeSeries(bars.DateTimes);
             TimeSeries mansfieldRs = new TimeSeries(bars.DateTimes);
 
-            mansfieldRs = FastSMA.Series(((((bars.Close / indexDailyBars.Close) * 100) / FastSMA.Series(((bars.Close / indexDailyBars.Close) * 100), 200)) - 1) * 100, 5);
+            mansfieldRs = FastSMA.Series(((((bars.Close / indexClose) * 100) / FastSMA.Series(((bars.Close / indexClose) * 100), 200)) - 1) * 100, 5);
 
             Lowest minervini52WeeklsLow = new Lowest(bars.Low, 252);
             Highest minervini52WeeklsHigh = new Highest(bars.High, 252);
