@@ -1,11 +1,12 @@
 ﻿using WealthLab.Core;
-using WealthLab.Indicators;
 
 namespace WealthLab.Community
 {
     public class MansfieldRelativeStrength : IndicatorBase
     {
-        public MansfieldRelativeStrength() : base() { }
+        public MansfieldRelativeStrength() : base()
+        {
+        }
 
         public MansfieldRelativeStrength(BarHistory source, String rsSymbol, int dorseyRsPeriod) : base()
         {
@@ -36,7 +37,7 @@ namespace WealthLab.Community
 
         public override string Abbreviation { get { return "MRS"; } }
 
-        public override string HelpDescription { get { return "The Mansfield RS Indicator represents the relative strength correlation between two securities or generally between a security and its sectoral or market index."; } }
+        public override string HelpDescription { get { return "The Mansfield RS Indicator (by Springroll) represents the relative strength correlation between two securities or generally between a security and its sectoral or market index."; } }
 
         public override string PaneTag { get { return "Mansfield Relative Strength"; } }
 
@@ -55,7 +56,7 @@ namespace WealthLab.Community
                 return;
 
             BarHistory indexDailyBars = WLHost.Instance.GetHistory(indexRefSymbol, bars.Scale, DateTime.MinValue, DateTime.MaxValue, bars.Count, null);
-            TimeSeries dorseyRs = bars.Close / indexDailyBars.Close * 100;
+            TimeSeries dorseyRs = bars.Close / indexDailyBars?.Close * 100;
             TimeSeries mansfieldRs = (dorseyRs / FastSMA.Series(dorseyRs, dorseyRsPeriod) - 1) * 100;
 
             Values = mansfieldRs.Values;
