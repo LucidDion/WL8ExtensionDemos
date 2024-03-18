@@ -2,7 +2,7 @@
 
 An open-source class library for Wealth-Lab 8, containing Indicators, and an example custom extension with child window.  You can download the DLL for this library and save it into your WL8 installation folder from this link:
 
-https://drive.google.com/file/d/1dKsJJLfymF2njHIYHxH-ttkOiwEdLsZ7/view?usp=sharing
+[https://drive.google.com/file/d/1dKsJJLfymF2njHIYHxH-ttkOiwEdLsZ7/view?usp=sharing](https://drive.google.com/file/d/1Brc71CqZqQoQ718q6STWY-5lccDJ61Mf/view?usp=sharing)
 
 Note: you may need to right-click on the downloaded file and select Unblock from the pop up menu before Windows will allow it to be loaded when WL8 starts.
 
