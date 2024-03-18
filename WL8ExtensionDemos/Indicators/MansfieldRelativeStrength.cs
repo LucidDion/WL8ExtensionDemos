@@ -1,4 +1,5 @@
 ﻿using WealthLab.Core;
+using WealthLab.Indicators;
 
 namespace WealthLab.Community
 {
