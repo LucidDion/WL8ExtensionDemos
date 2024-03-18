@@ -5,7 +5,7 @@ using System.Text;
 using WealthLab.Core;
 using WealthLab.Indicators;
 
-namespace WealthLab.Indicators
+namespace WealthLab.Community
 {
     public class MinerviniTrendRatio : IndicatorBase
     {
